@@ -1,6 +1,19 @@
+import org.junit.Test;
+
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.StringReader;
+import java.util.List;
+
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
+
 public class PickManyQuotesTest {
 
-  /*
+
 
   @Test
   public void test() throws Exception {
@@ -29,6 +42,6 @@ public class PickManyQuotesTest {
 
       assertThat(output, containsString(reformattedQuote + " Line "+1));
 
-  }*/
+  }
 
 }

@@ -1,6 +1,17 @@
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.fail;
+
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.StringReader;
+import org.junit.Test;
+
 public class PickYourQuoteTest {
 
-  /*
+
   @Test
   public void exampleText() throws Exception {
 
@@ -21,5 +32,5 @@ public class PickYourQuoteTest {
         "Selected line 2 but got a different line.",
         output,
         containsString("Another test!" + "\n" + "Anonymous"));
-  }*/
+  }
 }

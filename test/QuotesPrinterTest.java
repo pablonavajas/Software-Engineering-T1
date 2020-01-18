@@ -34,9 +34,9 @@ public class QuotesPrinterTest {
     String actualOutput = outstream.toString();
 
     String errorMsg =
-        String.format(
-            "For \n %s \n the expected output should contain \n %s \n but the output was \n %s",
-            input, expectedOutput, actualOutput);
+            String.format(
+                    "For \n %s \n the expected output should contain \n %s \n but the output was \n %s",
+                    input, expectedOutput, actualOutput);
 
     assertThat(errorMsg, actualOutput, containsString(expectedOutput));
   }
@@ -49,5 +49,31 @@ public class QuotesPrinterTest {
     ByteArrayOutputStream outstream = new ByteArrayOutputStream();
     System.setOut(new PrintStream(outstream));
     return outstream;
+  }
+
+  //Add more tests:
+
+  @Test
+  public void invalidSingleLine() {
+
+    String input = text + comment;
+    String expectedOutput = text + comment;
+
+    ByteArrayOutputStream outstream = replaceSystemOutStreamForTesting();
+
+    try {
+      QuotesPrinter.reformat(readerFor(input));
+    } catch (IOException e) {
+      fail("An exception occurred when processing single line input:" + e.getMessage());
+    }
+
+    String actualOutput = outstream.toString();
+
+    String errorMsg =
+            String.format(
+                    "For \n %s \n the expected output should contain \n %s \n but the output was \n %s",
+                    input, expectedOutput, actualOutput);
+
+    assertThat(errorMsg, actualOutput, containsString(expectedOutput));
   }
 }
