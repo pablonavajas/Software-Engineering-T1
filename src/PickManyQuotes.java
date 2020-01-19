@@ -9,19 +9,24 @@ public class PickManyQuotes {
 
   public static void main(String[] args) throws Exception {
 
-    // Use file name and quote numbers in args
-    // to first create a list of quotes using loadQuotes
-    // and then print to System.out the chosen quotes.
+    /*
+     Use file name and quote numbers in args
+     to first create a list of quotes using loadQuotes
+     and then print to System.out the chosen quotes.
+    */
 
     final String quotesFile = args[0];
 
-    // read the file Quotes.txt using a BufferedReader
+    // read the file (Quotes.txt) using a BufferedReader
     FileReader in = new FileReader(quotesFile);
     BufferedReader allQuotes = new BufferedReader(in);
+
+    // Load all quotes into a list of Quotes
     List<Quote> quotesList = loadQuotes(allQuotes);
 
     allQuotes.close();
 
+    // Store choices in a list
     int[] choices = new int[args.length - 1];
 
     for (int i = 1; i < args.length; i++) {
@@ -29,6 +34,7 @@ public class PickManyQuotes {
       choices[i - 1] = Integer.parseInt(args[i]);
     }
 
+    // Print quotes specified in "choices"
     reformat(quotesList, choices);
   }
 
@@ -38,9 +44,10 @@ public class PickManyQuotes {
     // Print to System.out quotes according to choices.
     for (int i = 0; i < choices.length; i++) {
 
-      if (choices[i] - 1 >= 0 && choices[i] - 1 <= quotes.size()) {
+      System.out.println(quotes.get(choices[i] - 1).toString());
+      /*if (choices[i] - 1 >= 0 && choices[i] - 1 <= quotes.size()) {
         System.out.println(quotes.get(choices[i] - 1).toString());
-      }
+      }*/
     }
   }
 
@@ -49,17 +56,14 @@ public class PickManyQuotes {
     List<Quote> quotes = new ArrayList<Quote>();
 
     // Read lines from the input// Create a Quote object for each line and store in list.
-
     String line = in.readLine();
-    int i = 0;
+
     while (line != null) {
 
       quotes.add(new Quote(line));
 
       line = in.readLine();
-      i++;
     }
-
     return quotes;
   }
 

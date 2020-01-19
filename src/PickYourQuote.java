@@ -8,10 +8,11 @@ public class PickYourQuote {
 
   public static void main(String[] args) throws Exception {
 
+    // Extract appropriate parameters from command line
     final String quotesFile = args[0];
     final int quote_no = Integer.parseInt(args[1]);
 
-    // read the file Quotes.txt using a BufferedReader
+    // read the file (Quotes.txt) using a BufferedReader
     FileReader in = new FileReader(quotesFile);
     BufferedReader quotesRead = new BufferedReader(in);
 
@@ -23,13 +24,14 @@ public class PickYourQuote {
 
   public static void reformat(int i, BufferedReader in) throws IOException {
 
-    // read specified line from the input
+    // read lines up to specified line from the Buffered Reader
     String quote = "";
 
     for (int line = 0; line < i; line++) {
 
       quote = in.readLine();
 
+      // If range exceeded avoid "null pointer exception"
       if (quote == null) {
         quote = "";
       }
