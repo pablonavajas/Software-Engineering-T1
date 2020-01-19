@@ -35,7 +35,8 @@ public class QuotesPrinterTest {
 
     String errorMsg =
             String.format(
-                    "For \n %s \n the expected output should contain \n %s \n but the output was \n %s",
+                    "For \n %s \n the expected output should contain \n %s"
+                    + "\n but the output was \n %s",
                     input, expectedOutput, actualOutput);
 
     assertThat(errorMsg, actualOutput, containsString(expectedOutput));
@@ -71,7 +72,8 @@ public class QuotesPrinterTest {
 
     String errorMsg =
             String.format(
-                    "For \n %s \n the expected output should contain \n %s \n but the output was \n %s",
+                    "For \n %s \n the expected output should contain \n %s"
+                    + "\n but the output was \n %s",
                     input, expectedOutput, actualOutput);
 
     assertThat(errorMsg, actualOutput, containsString(expectedOutput));
