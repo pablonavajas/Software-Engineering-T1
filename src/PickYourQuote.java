@@ -27,7 +27,12 @@ public class PickYourQuote {
         String quote = "";
 
         for (int line = 0; line < i; line++) {
+
             quote = in.readLine();
+
+            if (quote == null) {
+                quote = "";
+            }
         }
 
         // reformat as appropriate

@@ -33,4 +33,26 @@ public class PickYourQuoteTest {
         output,
         containsString("Another test!" + "\n" + "Anonymous"));
   }
+
+  @Test
+  public void outOfBoundTest() throws Exception {
+
+    String input =
+            String.join(
+                    "\n",
+                    "What a test!;Anonymous",
+                    "Another test!;Anonymous",
+                    "The last test!;Anonymous");
+
+    ByteArrayOutputStream outstream = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outstream));
+
+    PickYourQuote.reformat(5, new BufferedReader(new StringReader(input)));
+
+    String output = outstream.toString();
+    assertThat(
+            "Selected line 5 but got a different line.",
+            output,
+            containsString(""));
+  }
 }
