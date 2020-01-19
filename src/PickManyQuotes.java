@@ -4,34 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class Quote {
-
-  String quotation;
-  String context;
-
-  Quote (String text)
-  {
-    String[] result = text.split(";");
-
-    quotation = result[0];
-    context = result[1];
-  }
-
-  String getQuote() {
-    return quotation;
-  }
-
-  String getContext() {
-    return context;
-  }
-
-  @Override
-  public String toString() {
-    return "`" + quotation + '\'' +
-            " by " + context;
-  }
-
-}
 
 public class PickManyQuotes {
 
@@ -66,7 +38,7 @@ public class PickManyQuotes {
     // Print to System.out quotes according to choices.
     for (int i = 0; i < choices.length; i++) {
 
-      if (choices[i] - 1 >= 0 && choices[i] - 1 <= quotes.size()){
+      if (choices[i] - 1 >= 0 && choices[i] - 1 <= quotes.size()) {
         System.out.println(quotes.get(choices[i] - 1).toString());
       }
     }
