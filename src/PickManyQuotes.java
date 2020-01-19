@@ -44,10 +44,10 @@ public class PickManyQuotes {
     // Print to System.out quotes according to choices.
     for (int i = 0; i < choices.length; i++) {
 
-      System.out.println(quotes.get(choices[i] - 1).toString());
-      /*if (choices[i] - 1 >= 0 && choices[i] - 1 <= quotes.size()) {
+      // Avoid out of bound exception
+      if (choices[i] - 1 >= 0 && choices[i] - 1 <= quotes.size()) {
         System.out.println(quotes.get(choices[i] - 1).toString());
-      }*/
+      }
     }
   }
 
@@ -61,7 +61,6 @@ public class PickManyQuotes {
     while (line != null) {
 
       quotes.add(new Quote(line));
-
       line = in.readLine();
     }
     return quotes;

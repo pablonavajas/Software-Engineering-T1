@@ -1,5 +1,6 @@
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
 
 import java.io.BufferedReader;
@@ -53,6 +54,6 @@ public class PickYourQuoteTest {
     assertThat(
             "Selected line 5 but got a different line.",
             output,
-            containsString(""));
+            is("\n"));
   }
 }
