@@ -31,7 +31,7 @@ public class PickYourQuote {
       quote = in.readLine();
 
       if (quote == null) {
-          quote = "";
+        quote = "";
       }
     }
 
