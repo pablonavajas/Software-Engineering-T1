@@ -1,29 +1,29 @@
 public class Quote {
 
-    String quotation;
-    String context;
+  String quotation;
+  String context;
 
-    Quote(String text) {
-        String[] result = text.split(";");
+  Quote(String text) {
+    String[] result = text.split(";");
 
-        quotation = result[0];
-        context = result[1];
-    }
+    quotation = result[0];
+    context = result[1];
+  }
 
-    String getQuote() {
+  String getQuote() {
 
-        return quotation;
-    }
+    return quotation;
+  }
 
-    String getContext() {
+  String getContext() {
 
-        return context;
-    }
+    return context;
+  }
 
-    @Override
-    public String toString() {
-        return "`" + quotation + '\''
-                + " by " + context;
-    }
+  @Override
+  public String toString() {
+    return "`" + quotation + '\''
+            + " by " + context;
+  }
 }
 

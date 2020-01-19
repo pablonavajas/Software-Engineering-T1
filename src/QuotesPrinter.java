@@ -30,7 +30,7 @@ public class QuotesPrinter {
       // print to System.out
       for (String newline : result) {
         System.out.println(newline);
-        }
+      }
 
       quote = input.readLine();
     }
