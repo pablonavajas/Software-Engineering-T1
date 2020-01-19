@@ -4,9 +4,9 @@ import java.io.IOException;
 
 public class QuotesPrinter {
 
-  public static void main(String[] args) throws Exception {
+  static final String quotesFile = "Quotes.txt";
 
-    final String quotesFile = "Quotes.txt";
+  public static void main(String[] args) throws Exception {
 
     // read the file Quotes.txt using a BufferedReader
     FileReader in = new FileReader(quotesFile);
@@ -15,6 +15,7 @@ public class QuotesPrinter {
     // reformat the file
     reformat(quotesRead);
 
+    quotesRead.close();
   }
 
   public static void reformat(BufferedReader input) throws IOException {

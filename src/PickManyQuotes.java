@@ -30,6 +30,7 @@ class Quote {
     return "`" + quotation + '\'' +
             " by " + context;
   }
+
 }
 
 public class PickManyQuotes {
@@ -47,6 +48,8 @@ public class PickManyQuotes {
     BufferedReader allQuotes = new BufferedReader(in);
     List<Quote> quotesList = loadQuotes(allQuotes);
 
+    allQuotes.close();
+
     int[] choices = new int[args.length - 1];
 
     for (int i = 1; i < args.length; i++) {
@@ -63,7 +66,9 @@ public class PickManyQuotes {
     // Print to System.out quotes according to choices.
     for (int i = 0; i < choices.length; i++) {
 
-      System.out.println(quotes.get(choices[i] - 1).toString());
+      if (choices[i] - 1 >= 0 && choices[i] - 1 <= quotes.size()){
+        System.out.println(quotes.get(choices[i] - 1).toString());
+      }
     }
   }
 

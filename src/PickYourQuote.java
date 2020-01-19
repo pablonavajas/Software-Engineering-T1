@@ -18,6 +18,7 @@ public class PickYourQuote {
         // reformat the file
         reformat(quote_no, quotesRead);
 
+        quotesRead.close();
     }
 
     public static void reformat(int i, BufferedReader in) throws IOException {
@@ -28,8 +29,6 @@ public class PickYourQuote {
         for (int line = 0; line < i; line++) {
             quote = in.readLine();
         }
-
-        //String quote = Files.readAllLines(Paths.get(quotesFile)).get(n)
 
         // reformat as appropriate
         String[] result = quote.split(";");
